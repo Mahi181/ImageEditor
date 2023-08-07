@@ -3,7 +3,18 @@ from werkzeug.utils import secure_filename
 import cv2
 import os
 
-
+current_directory = os.getcwd()
+if(os.path.isdir("uploads")):
+   UPLOAD_FOLDER = 'uploads'
+else:
+    new_folder_path = os.path.join(current_directory, "uploads")
+    os.mkdir(new_folder_path)
+if(os.path.isdir("static")):
+    UPLOAD_FOLDER = 'static'
+else:
+    new_folder_path = os.path.join(current_directory, "static")
+    os.mkdir(new_folder_path)
+    
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = { 'webp', 'png', 'jpg', 'jpeg', 'gif'}
 
